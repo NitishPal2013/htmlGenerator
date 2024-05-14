@@ -2,8 +2,12 @@ import markdown
 from langchain_google_genai import GoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
+import os
+from dotenv import load_dotenv
 
-model = GoogleGenerativeAI(model="gemini-pro",google_api_key="AIzaSyDfhB6wTccvXk4f-sbxe8K7IzkLBX3ArRw")
+load_dotenv()
+
+model = GoogleGenerativeAI(model="gemini-pro",google_api_key=os.environ["GEMIN_API_KEY"])
 
 prompt = PromptTemplate.from_template(""" 
 content: 
